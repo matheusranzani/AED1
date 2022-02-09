@@ -6,17 +6,17 @@ typedef struct Pilha {
     int topo;
 } Pilha;
 
-// Função que inicializa uma pilha vazia 
+// Função que inicializa uma pilha vazia
 void cria(Pilha *p) {
     p->topo = -1; 
 }
 
-// Função que retorna 1 se a pilha está vazia e 0 caso contrário 
+// Função que retorna 1 se a pilha está vazia e 0 caso contrário
 int vazia(Pilha *p) {
     return p->topo == -1 ? 1 : 0;
 }
 
-// Função que retorna 1 se a pilha está cheia e 0 caso contrário 
+// Função que retorna 1 se a pilha está cheia e 0 caso contrário
 int cheia(Pilha *p) {
     return p->topo == TAMANHO - 1 ? 1 : 0;
 }

@@ -36,7 +36,7 @@ void insere(Fila *f, int x, int *deu_certo) {
     }
 }
 
-// Função que remove o elemento da primeira posição da fila caso ela não esteja cheia
+// Função que remove o elemento da primeira posição da fila caso ela não esteja vazia
 void retira(Fila *f, int *x, int *deu_certo) {
     if (vazia(f)) {
         *deu_certo = 0;
