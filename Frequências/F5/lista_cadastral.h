@@ -13,7 +13,7 @@ typedef struct Lista {
     int tamanho;
 } Lista;
 
-// Função que retorna uma List avazia
+// Função que retorna uma Lista vazia
 Lista *cria() {
     Lista *l;
 
