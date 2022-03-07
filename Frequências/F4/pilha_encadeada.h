@@ -35,7 +35,7 @@ void empilha(Pilha *p, int x, int *deu_certo) {
     if (cheia(p)) {
         *deu_certo = 0;
     } else {
-        NodePtr p_aux = malloc(sizeof(NodePtr)); 
+        NodePtr p_aux = malloc(sizeof(NodePtr));
         
         p_aux->info = x;
         p_aux->next = p->topo;
