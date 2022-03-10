@@ -22,7 +22,7 @@ int vazia(Fila *F) {
 }
 
 void insere(Fila *F, int X, int *Erro) {
-    NodePtr p = (NodePtr) malloc(sizeof(NodePtr));
+    NodePtr p = (NodePtr) malloc(sizeof(Node));
     p->info = X;
 
     if (vazia(F)) {
@@ -61,6 +61,7 @@ void retira(Fila *F, int *X, int *Erro) {
             F->primeiro = NULL;
             F->ultimo = NULL;
 
+            free(primeiro);
             return;
         }
         
@@ -82,17 +83,10 @@ void destroi(Fila *F) {
         return;
     }
 
-    NodePtr p_aux = F->primeiro;
+    int X;
+    int Erro;
 
-    do {
-        free(p_aux);
-        p_aux = p_aux->dir;
-    } while (p_aux != F->primeiro);
-
-    // Se eu coloco isso aparece o erro "double free or corruption (out)"
-    // free(F);
-
-    // Se eu coloco esses "free()" não aparece o erro, mas precisa deles?
-    free(F->primeiro);
-    free(F->ultimo);
+    while (!vazia(F)) {
+        retira(F, &X, &Erro);
+    }
 }

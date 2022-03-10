@@ -21,7 +21,7 @@ int vazia(FilaDeVacinacao *FV) {
 }
 
 void insere(FilaDeVacinacao *FV, int Idade) {
-    NodePtr p = malloc(sizeof(NodePtr)); 
+    NodePtr p = malloc(sizeof(Node)); 
     p->info = Idade;
 
     NodePtr p_aux = FV->ptr;
@@ -30,7 +30,7 @@ void insere(FilaDeVacinacao *FV, int Idade) {
     if (FV->ptr == NULL) { 
         p->next = p;
         FV->ptr = p;
-    } else if (p->info >= FV->ptr->info) {
+    } else if (p->info > FV->ptr->info) {
         // Idade maior ou igual que a do começo da fila
         while (p_aux->next != FV->ptr) {
             p_aux = p_aux->next;
@@ -42,7 +42,7 @@ void insere(FilaDeVacinacao *FV, int Idade) {
         FV->ptr = p;
     } else {
         // Idade no meio ou no fim da fila
-        while (p_aux->next != FV->ptr && p->info < p_aux->next->info) {
+        while (p_aux->next != FV->ptr && p->info <= p_aux->next->info) {
             p_aux = p_aux->next;
         }
 

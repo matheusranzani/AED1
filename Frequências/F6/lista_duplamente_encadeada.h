@@ -48,7 +48,7 @@ void libera(Lista *l) {
 int insere(Lista *l, int x) {
     assert(l != NULL);
 
-    NodePtr p = malloc(sizeof(NodePtr));
+    NodePtr p = malloc(sizeof(Node));
     
     p->info = x;
     p->proximo = NULL;
