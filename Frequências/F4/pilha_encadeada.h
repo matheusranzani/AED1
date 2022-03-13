@@ -12,7 +12,6 @@ typedef Node *NodePtr;
 // Declaração da pilha encadeada
 typedef struct Pilha {
     NodePtr topo;
-    int *elementos;
 } Pilha;
 
 // Função que inicializa uma pilha vazia

@@ -49,6 +49,7 @@ void retira(Fila *f, int *x, int *deu_certo) {
             f->primeiro = NULL;    
             f->ultimo = NULL;
             
+            free(primeiro);
             return;
         }
         
