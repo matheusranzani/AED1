@@ -1,7 +1,0 @@
-{
-    "files.associations": {
-        "pilha.h": "c",
-        "stdlib.h": "c",
-        "lista_duplamente_encadeada.h": "c"
-    }
-}
