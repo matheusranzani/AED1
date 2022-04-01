@@ -16,7 +16,7 @@ int vazia(NodePtr *L) {
 }
 
 void insere(NodePtr *L, int x) {
-    NodePtr p = malloc(sizeof(Node));
+    NodePtr p = (NodePtr) malloc(sizeof(Node));
     p->info = x;
 
     if (vazia(L)) {

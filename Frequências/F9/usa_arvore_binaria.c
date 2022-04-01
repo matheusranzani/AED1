@@ -10,6 +10,17 @@ void imprime_todos(ArvoreBinaria R) {
     }
 }
 
+// void imprime_todos(ArvoreBinaria R) {
+//     if (!vazia(&R)) {
+//         printf("%d(", R->info);
+//         imprime_todos(R->esq);
+//         printf(",");
+//         imprime_todos(R->dir);
+//         printf(")");
+//     } else {
+//         printf("NULL");
+//     }
+// }
 
 int altura(ArvoreBinaria R) {
     if (vazia(&R)) {
@@ -66,15 +77,3 @@ int main() {
 
     return 0;
 }
-
-// void imprime_todos(ArvoreBinaria R) {
-//     if (!vazia(&R)) {
-//         printf("%d(", R->info);
-//         imprime_todos(R->esq);
-//         printf(",");
-//         imprime_todos(R->dir);
-//         printf(")");
-//     } else {
-//         printf("NULL");
-//     }
-// }
