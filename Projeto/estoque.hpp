@@ -5,10 +5,6 @@ typedef struct Produto {
     double preco;
     int quantidade;
     struct Produto* proximo;
-
-    Produto() {};
-    Produto(std::string nome, double preco, int quantidade) :
-        nome(nome), preco(preco), quantidade(quantidade) {}
 } Produto;
 
 typedef Produto* ProdutoPtr;
