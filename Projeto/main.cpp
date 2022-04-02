@@ -1,7 +1,5 @@
 #include "estoque.hpp"
 
-#include <locale>
-
 void limpar_tela() {
     #if defined _WIN32
         system("cls");
@@ -152,7 +150,7 @@ void imprimir_estoque(Estoque* e) {
 }
 
 int main() {
-    setlocale(LC_ALL, "Portuguese");
+    setlocale(LC_ALL, "pt_BR.UTF-8");
 
     Estoque e;
     int opcao;
