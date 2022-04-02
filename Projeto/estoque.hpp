@@ -41,18 +41,31 @@ bool esta_no_estoque(Estoque* e, std::string nome) {
     return false;
 }
 
-void insere(Estoque* e, ProdutoPtr p, bool* ok) {
+ProdutoPtr retorna_produto(Estoque* e, std::string nome) {
+    ProdutoPtr p_aux = e->primeiro;
+
+    while (p_aux != NULL) {
+        if (p_aux->nome == nome) {
+            return p_aux;
+        }
+
+        p_aux = p_aux->proximo;
+    }
+    
+    return NULL;
+}
+
+void insere(Estoque* e, Produto p, bool* ok) {
     ProdutoPtr p_novo = new Produto;
 
-    p_novo->nome = p->nome;
-    p_novo->preco = p->preco;
-    p_novo->quantidade = p->quantidade;
+    p_novo->nome = p.nome;
+    p_novo->preco = p.preco;
+    p_novo->quantidade = p.quantidade;
     p_novo->proximo = NULL;
 
     if (vazio(e)) {
         e->primeiro = p_novo;
-    }
-    else {
+    } else {
         if (esta_no_estoque(e, p_novo->nome)) {
             *ok = false;
             return;
@@ -65,12 +78,13 @@ void insere(Estoque* e, ProdutoPtr p, bool* ok) {
     *ok = true;
 }
 
-void retira(Estoque* e, ProdutoPtr p, bool* ok) {
-    if (!esta_no_estoque(e, p->nome)) {
+void retira(Estoque* e, std::string nome, bool* ok) {
+    if (!esta_no_estoque(e, nome)) {
         *ok = false;
         return;
     }
 
+    ProdutoPtr p = retorna_produto(e, nome);
     ProdutoPtr p_aux = e->primeiro;
     ProdutoPtr anterior = NULL;
 
