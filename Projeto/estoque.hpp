@@ -114,7 +114,7 @@ void retira(Estoque* e, std::string nome, bool* ok) {
 }
 
 void altera_quantidade(Estoque* e, std::string nome, int quantidade, bool* ok) {
-    if (!esta_no_estoque(e, nome)) {
+    if (!esta_no_estoque(e, nome) || quantidade < 0) {
         *ok = false;
         return;
     }
@@ -124,14 +124,7 @@ void altera_quantidade(Estoque* e, std::string nome, int quantidade, bool* ok) {
     while (p_aux != NULL && p_aux->nome != nome) {
         p_aux = p_aux->proximo;
     }
-
-    int nova_quantidade = p_aux->quantidade + quantidade;
     
-    if (nova_quantidade < 0) {
-        *ok = false;
-        return;
-    }
-
-    p_aux->quantidade = nova_quantidade;
+    p_aux->quantidade = quantidade;
     *ok = true;
 }

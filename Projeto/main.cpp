@@ -1,5 +1,7 @@
 #include "estoque.hpp"
 
+#include <locale>
+
 void limpar_tela() {
     #if defined _WIN32
         system("cls");
@@ -24,7 +26,7 @@ void adicionar_produto(Estoque* e) {
     std::cout << "Nome: ";
     std::cin.ignore();
     getline(std::cin, produto.nome);
-    std::cout << "Preco: ";
+    std::cout << "Preço: ";
     std::cin >> produto.preco;
     std::cout << "Quantidade: ";
     std::cin >> produto.quantidade;
@@ -32,7 +34,7 @@ void adicionar_produto(Estoque* e) {
     insere(e, produto, &ok);
 
     if (ok) {
-        std::cout << "\nProduto adicionado com sucesso\n" << std::endl;
+        std::cout << "\nProduto adicionado com sucesso!\n" << std::endl;
         std::cin.ignore();
         esperar();
     } else {
@@ -53,7 +55,7 @@ void retirar_produto(Estoque* e) {
     retira(e, nome, &ok);
 
     if (ok) {
-        std::cout << "\nProduto removido com sucesso\n" << std::endl;
+        std::cout << "\nProduto removido com sucesso!\n" << std::endl;
         esperar();
     } else {
         std::cout << "\nFalha ao remover o produto\n" << std::endl;
@@ -65,7 +67,7 @@ void imprime_produto(Estoque* e, std::string nome, bool* ok) {
     ProdutoPtr produto = retorna_produto(e, nome);
     if (produto == NULL) {
         *ok = false;
-        std::cout << "\nProduto nao encontrado no estoque\n" << std::endl;
+        std::cout << "\nProduto não encontrado no estoque\n" << std::endl;
         esperar();
         return;
     }
@@ -73,12 +75,27 @@ void imprime_produto(Estoque* e, std::string nome, bool* ok) {
     std::cout << "\nProduto encontrado no estoque: ";
 
     std::cout << "\nNome: " << produto->nome << std::endl;
-    std::cout << "Preco: " << produto->preco << std::endl;
+    std::cout << "Preço: " << produto->preco << std::endl;
     std::cout << "Quantidade: " << produto->quantidade << std::endl;
 
     std::cout << std::endl;
 
     *ok = true;
+}
+
+void imprimir_produto(Estoque* e) {
+    std::string nome;
+    bool ok;
+
+    std::cout << "\nInforme o nome do produto que deseja exibir: ";
+    std::cin.ignore();
+    getline(std::cin, nome);
+
+    imprime_produto(e, nome, &ok);
+
+    if (ok) {
+        esperar();
+    }
 }
 
 void alterar_quantidade(Estoque* e) {
@@ -95,13 +112,13 @@ void alterar_quantidade(Estoque* e) {
         return;
     }
   
-    std::cout << "Informe a quantidade que deseja alterar: ";
+    std::cout << "Informe a nova quantidade do produto: ";
     std::cin >> quantidade;
 
     altera_quantidade(e, nome, quantidade, &ok);
 
     if (ok) {
-        std::cout << "\nQuantidade alterada com sucesso\n" << std::endl;
+        std::cout << "\nQuantidade alterada com sucesso!\n" << std::endl;
         std::cin.ignore();
         esperar();
     } else {
@@ -111,7 +128,7 @@ void alterar_quantidade(Estoque* e) {
     }
 }
 
-void imprime_estoque(Estoque* e) {
+void imprimir_estoque(Estoque* e) {
     if (vazio(e)) {
         std::cout << "\nEstoque vazio\n" << std::endl;
         std::cin.ignore();
@@ -123,7 +140,7 @@ void imprime_estoque(Estoque* e) {
 
     do {
         std::cout << "\nNome: " << p_aux->nome << std::endl;
-        std::cout << "Preco: " << p_aux->preco << std::endl;
+        std::cout << "Preço: " << p_aux->preco << std::endl;
         std::cout << "Quantidade: " << p_aux->quantidade << std::endl;
 
         p_aux = p_aux->proximo;
@@ -135,9 +152,10 @@ void imprime_estoque(Estoque* e) {
 }
 
 int main() {
+    setlocale(LC_ALL, "Portuguese");
+
     Estoque e;
     int opcao;
-    bool ok;
 
     cria(&e);
 
@@ -145,10 +163,11 @@ int main() {
         std::cout << "Controle de estoque" << std::endl;
         std::cout << "\nEscolha uma opcao:" << std::endl;
         std::cout << "1 - Adicionar produto" << std::endl;
-        std::cout << "2 - Alterar quantidade do produto" << std::endl;
+        std::cout << "2 - Alterar quantidade de um produto" << std::endl;
         std::cout << "3 - Remover produto" << std::endl;
-        std::cout << "4 - Listar Produtos" << std::endl;
-        std::cout << "5 - Encerrar execucao" << std::endl;
+        std::cout << "4 - Exibir produto" << std::endl;
+        std::cout << "5 - Exibir estoque" << std::endl;
+        std::cout << "6 - Encerrar execução" << std::endl;
         std::cout << "Digite a opcao desejada: ";
         std::cin >> opcao;
 
@@ -166,19 +185,24 @@ int main() {
                 limpar_tela();
                 break;
             case 4:
-                imprime_estoque(&e);
+                imprimir_produto(&e);
                 limpar_tela();
                 break;
             case 5:
-                std::cout << "\nPrograma finalizado" << std::endl;
+                imprimir_estoque(&e);
+                limpar_tela();
+                break;
+            case 6:
+                std::cout << "\nPrograma finalizado!" << std::endl;
                 break;
             default:
-                std::cout << "\nOpcao invalida" << std::endl;
+                std::cout << "\nOpcção inválida\n" << std::endl;
+                std::cin.ignore();
                 esperar();
                 limpar_tela();
                 break;
         }
-    } while (opcao != 5);
+    } while (opcao != 6);
 
     return 0;
 }
