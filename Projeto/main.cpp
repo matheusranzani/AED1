@@ -198,7 +198,6 @@ int main() {
                 std::cin.ignore();
                 esperar();
                 limpar_tela();
-                break;
         }
     } while (opcao != 6);
 
