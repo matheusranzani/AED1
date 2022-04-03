@@ -159,14 +159,14 @@ int main() {
 
     do {
         std::cout << "Controle de estoque" << std::endl;
-        std::cout << "\nEscolha uma opcao:" << std::endl;
+        std::cout << "\nEscolha uma opção:" << std::endl;
         std::cout << "1 - Adicionar produto" << std::endl;
         std::cout << "2 - Alterar quantidade de um produto" << std::endl;
         std::cout << "3 - Remover produto" << std::endl;
         std::cout << "4 - Exibir produto" << std::endl;
         std::cout << "5 - Exibir estoque" << std::endl;
         std::cout << "6 - Encerrar execução" << std::endl;
-        std::cout << "Digite a opcao desejada: ";
+        std::cout << "Digite a opção desejada: ";
         std::cin >> opcao;
 
         switch (opcao) {
