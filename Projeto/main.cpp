@@ -106,6 +106,7 @@ void alterar_quantidade(Estoque* e) {
     getline(std::cin, nome);
 
     imprime_produto(e, nome, &ok);
+    
     if (!ok) {
         return;
     }
