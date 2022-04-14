@@ -1,7 +1,6 @@
 {
     "files.associations": {
         "stdlib.h": "c",
-        "arvore_binaria.h": "c",
         "iostream": "cpp",
         "new": "cpp",
         "ostream": "cpp",
@@ -43,6 +42,7 @@
         "stdexcept": "cpp",
         "streambuf": "cpp",
         "typeinfo": "cpp",
-        "time.h": "c"
+        "time.h": "c",
+        "stdio.h": "c",
     }
 }
