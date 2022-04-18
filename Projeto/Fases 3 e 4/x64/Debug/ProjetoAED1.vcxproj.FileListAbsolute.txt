@@ -1,0 +1,5 @@
+E:\Code\ProjetoAED1\x64\Debug\ProjetoAED1.vcxproj.AssemblyReference.cache
+E:\Code\ProjetoAED1\x64\Debug\ProjetoAED1.vcxproj.SuggestedBindingRedirects.cache
+E:\Code\ProjetoAED1\x64\Debug\ProjetoAED1.exe
+E:\Code\ProjetoAED1\x64\Debug\ProjetoAED1.vcxproj.GenerateResource.cache
+E:\Code\ProjetoAED1\x64\Debug\ProjetoAED1.frmMenu.resources

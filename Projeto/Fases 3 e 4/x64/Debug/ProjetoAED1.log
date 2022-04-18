@@ -1,0 +1,4 @@
+﻿  frmMenu.cpp
+E:\Code\ProjetoAED1\frmMenu.cpp(8,33): warning C4829: Parâmetros possivelmente incorretos para função main. Considere o uso de 'int main(Platform::Array<Platform::String^>^ argv)'
+  frmMenu.obj : Módulo MSIL encontrado; vínculo incremental está desabilitado para MSIL; executando link completo
+  ProjetoAED1.vcxproj -> E:\Code\ProjetoAED1\x64\Debug\ProjetoAED1.exe
