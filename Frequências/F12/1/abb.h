@@ -18,7 +18,7 @@ void cria(ABB* R) {
 
 void insere(ABB* R, int x, int* ok) {
     if (*R == NULL) {
-        ABB nova = (ABB)malloc(sizeof(Node));
+        ABB nova = (ABB) malloc(sizeof(Node));
 
         nova->esq = NULL;
         nova->dir = NULL;

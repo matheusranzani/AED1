@@ -44,5 +44,6 @@
         "typeinfo": "cpp",
         "time.h": "c",
         "stdio.h": "c",
+        "abb.h": "c"
     }
 }
